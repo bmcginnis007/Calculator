@@ -1,0 +1,76 @@
+html,
+body { height: 100%;
+    width: 100%;
+}
+
+body{
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    background-image: url("https://cdn.pixabay.com/photo/2016/12/18/09/10/trees-1915251_960_720.jpg");
+    
+}
+
+.calculatorBody {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    column-gap: 0px;
+    align-items: center;
+    background-color: #faf5ef;
+    margin: auto;
+    width: 575px;
+    height: 500px;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 10px 0 5px -2px black;
+    border-style: solid;
+    border-width: 0px 3px 3px 3px;
+}
+.display{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px 10px 0px 0px;
+    border-style: solid;
+    border-width: 3px 3px 0px 3px;
+    margin: auto;
+    margin-top: 150px;
+    width: 575px;
+    height: 150px;
+    box-shadow: 10px 0 5px -2px black;
+    background-color: #faf5ef;
+}
+.entry{
+    width: 400px;
+    height: 100px;
+    background-color: black;
+    border-radius: 10px;
+}
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    width: 65px;
+    border-radius: 50%;
+    filter: drop-shadow(0px 5px 5px black);
+    border-width: 0px;
+    border-style: solid;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    font-size: xx-large;
+    font-weight: 700;
+    background-color: #899499;
+}
+.btn:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+#numerator{
+    color: greenyellow;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 50px;
+    font-weight: 900;
+    text-align: end;
+}
