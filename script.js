@@ -3,9 +3,10 @@ function increment(a,b){
 }
 
   function increment8(){
-    if (document.getElementById("btn7").value == ""){
-      document.getElementById("numerator").innerHTML= 8;
-      document.getElementById("btn7").value = 8;
+    if (document.getElementById("btn8").value == ""){
+      document.getElementById("btn8").value = 8;
+      document.getElementById("numerator").innerHTML= document.getElementById("btn8").value;
+      
     }
     else if (document.getElementById("btn7").value == 8){
       document.getElementById("numerator").innerHTML= 88;
