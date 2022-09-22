@@ -1,19 +1,11 @@
-function increment(a,b){
-   document.getElementById("numerator").innerHTML= a * 10 + b;
+const numbers = [];
+const buttons = document.getElementById("btn");
+const value = document.querySelectorAll(buttons).value;
+const myNodelist = document.querySelectorAll("button");
+
+function increment(){
+   numbers.push(value);
+   document.getElementById("numerator").innerHTML= numbers;
 }
 
-  function increment8(){
-    if (document.getElementById("btn8").value == ""){
-      document.getElementById("btn8").value = 8;
-      document.getElementById("numerator").innerHTML= document.getElementById("btn8").value;
-      
-    }
-    else if (document.getElementById("btn7").value == 8){
-      document.getElementById("numerator").innerHTML= 88;
-      document.getElementById("btn7").value = 88;
-    }
-    else if (document.getElementById("btn7").value == 88){
-      document.getElementById("numerator").innerHTML= 888;
-      document.getElementById("btn7").value = 888;
-    }
-  }
+  
