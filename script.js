@@ -1,19 +1,24 @@
-const numbers = [];
+let stringArray = [];
+let numberArray = stringArray.map(Number);
 const seven = document.getElementById("btn7").value;
 const eight = document.getElementById("btn8").value;
 
 
 
 function increment7(){
-   numbers.push(seven);
-   document.getElementById("numerator").innerHTML= numbers.join("");
+   stringArray.push(seven);
+   let numberArray = stringArray.map(Number);
+   document.getElementById("numerator").innerHTML= numberArray.join("");
+   console.log(numberArray[0] + 10);
 }
+
 function increment8(){
-   numbers.push(eight);
-   document.getElementById("numerator").innerHTML= numbers.join("");
+   stringArray.push(eight);
+   document.getElementById("numerator").innerHTML= numberArray.join("");
 }
 
 function test(){
-   document.getElementById("numerator").innerHTML= numbers[0,1];
+   console.log(numberArray[0]);
+
 }
   
