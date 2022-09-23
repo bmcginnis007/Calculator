@@ -1,11 +1,19 @@
 const numbers = [];
-const buttons = document.getElementById("btn");
-const value = document.querySelectorAll(buttons).value;
-const myNodelist = document.querySelectorAll("button");
+const seven = document.getElementById("btn7").value;
+const eight = document.getElementById("btn8").value;
 
-function increment(){
-   numbers.push(value);
-   document.getElementById("numerator").innerHTML= numbers;
+
+
+function increment7(){
+   numbers.push(seven);
+   document.getElementById("numerator").innerHTML= numbers.join("");
+}
+function increment8(){
+   numbers.push(eight);
+   document.getElementById("numerator").innerHTML= numbers.join("");
 }
 
+function test(){
+   document.getElementById("numerator").innerHTML= numbers[0,1];
+}
   
