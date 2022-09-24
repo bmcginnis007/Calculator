@@ -1,24 +1,13 @@
-let stringArray = [];
-let numberArray = stringArray.map(Number);
-const seven = document.getElementById("btn7").value;
-const eight = document.getElementById("btn8").value;
+let numberArray = [];
 
-
-
-function increment7(){
-   stringArray.push(seven);
-   let numberArray = stringArray.map(Number);
+function increment(a){
+   numberArray.push(a);
    document.getElementById("numerator").innerHTML= numberArray.join("");
-   console.log(numberArray[0] + 10);
+   console.log(typeof numberArray[0]);
 }
 
-function increment8(){
-   stringArray.push(eight);
+function ce(){
+   numberArray.pop();
    document.getElementById("numerator").innerHTML= numberArray.join("");
-}
-
-function test(){
-   console.log(numberArray[0]);
-
 }
   

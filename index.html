@@ -14,22 +14,22 @@
             <div class="calculatorBody">
                 <div></div>
                 <button class="btn" id="clear">C</button>
-                <button class="btn" id="clearEntry">CE</button>
+                <button class="btn" id="clearEntry" onclick="ce()">CE</button>
                 <div></div>
-                <button class="btn" id="btn7" value= 7 onclick="increment7()">7</button>
-                <button class="btn" id="btn8" value= 8 onclick="increment8()">8</button>
-                <button class="btn">9</button>
+                <button class="btn" id="btn7" onclick="increment(7)">7</button>
+                <button class="btn" id="btn8" onclick="increment(8)">8</button>
+                <button class="btn" onclick="increment(9)">9</button>
                 <button class="btn">&divide;</button>
-                <button class="btn" id="btn4">4</button>
-                <button class="btn">5</button>
-                <button class="btn">6</button>
+                <button class="btn" id="btn4" onclick="increment(4)">4</button>
+                <button class="btn" onclick="increment(5)">5</button>
+                <button class="btn" onclick="increment(6)">6</button>
                 <button class="btn">&times;</button>
-                <button class="btn">1</button>
-                <button class="btn">2</button>
-                <button class="btn">3</button>
+                <button class="btn" id="btn1" onclick="increment(1)">1</button>
+                <button class="btn" id="btn2" onclick="increment(2)">2</button>
+                <button class="btn" id="btn3" onclick="increment(3)">3</button>
                 <button class="btn">-</button>
                 <button class="btn">.</button>
-                <button class="btn">0</button>
+                <button class="btn" id="btn0" onclick="increment(0)">0</button>
                 <button class="btn" id="equals" onclick="test()">=</button>
                 <button class="btn">+</button>
              </div>
