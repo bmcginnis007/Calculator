@@ -1,8 +1,9 @@
-let numberArray = [];
+const numberArray = [];
 
 function increment(a){
    numberArray.push(a);
-   document.getElementById("numbers").innerHTML= numberArray.join("");
+   document.getElementById("numbers"). innerHTML = numberArray.join('');
+   
 }
 
 function ce(){
