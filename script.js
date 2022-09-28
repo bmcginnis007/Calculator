@@ -2,7 +2,7 @@ const numberArray = [];
 
 function increment(a){
    numberArray.push(a);
-   document.getElementById("numbers"). innerHTML = numberArray.join('');
+   document.getElementById("numbers"). innerHTML = numberArray.join("");
    
 }
 
@@ -11,13 +11,14 @@ function ce(){
    document.getElementById("numbers").innerHTML= numberArray.join("");
 }
 
-const array1 = [7, 7, 7];
-const produceAndAdd = (array1 = []) => {
-   let sum = 0;
-   for(let i=0; i < array1.length; i++) {
-      const product = (array1[i] * 10 + 7);
-      sum += product;
-   };
-   return sum;
-};
-console.log(produceAndAdd(array1));
+const num1 = 4;
+const num2 = 5;
+const num3 = 6;
+
+const concat = '' + num1 + num2 + num3;
+console.log(typeof concat);
+console.log(concat);
+const num = Number(concat);
+console.log(typeof num);
+console.log(num);
+
