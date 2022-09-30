@@ -1,24 +1,17 @@
-const numberArray = [];
-
+let numberArray = [];
 function increment(a){
    numberArray.push(a);
-   document.getElementById("numbers"). innerHTML = numberArray.join("");
-   
+   if(numberArray.length < 17){
+   const update = numberArray.reduce((acc) => acc * 10 + a, 0,);
+   document.getElementById("numbers").innerHTML = update;
+   }
 }
+
 
 function ce(){
    numberArray.pop();
    document.getElementById("numbers").innerHTML= numberArray.join("");
 }
 
-const num1 = 4;
-const num2 = 5;
-const num3 = 6;
 
-const concat = '' + num1 + num2 + num3;
-console.log(typeof concat);
-console.log(concat);
-const num = Number(concat);
-console.log(typeof num);
-console.log(num);
 
