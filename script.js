@@ -1,14 +1,15 @@
 let firstOperand = [];
+let secondOperand = [];
 function increment(a){
    firstOperand.push(a);
-   const operand1 = firstOperand.join('') -0;
    document.getElementById("numbers").innerHTML = firstOperand.join('') -0; //shows operand in display
-   console.log(operand1);
 }
 
 document.getElementById("add").addEventListener("click", addition);
 function addition(){
-      document.getElementById("numbers").innerHTML = firstOperand.join('') -0 + " +";
+    increment(a);
+    secondOperand.push(a);
+   document.getElementById("numbers").innerHTML = firstOperand.join('') -0 + " +" + secondOperand.push(a);
    }
 
 
@@ -21,16 +22,28 @@ function ce(){
    }
 }
 
-function operate(firstOperand, secondOperand){
+function operate(a, operator, b){
+   return a operator b;
 
 }
 
 function add(a,b){
 
-   return operand1 + secondOperand.join('') -0;
+   return a + b;
 }
 
+function subtract(a,b){
+   return a - b;
+}
+
+function multiply(a,b){
+   return a * b;
+}
+
+function divide(a,b){
+   return a / b;
+}
 function solution(){
-   console.log(add(operand1, 2));
+   console.log(add(firstOperand.join('') -0, 2));
 }
 
