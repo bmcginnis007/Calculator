@@ -4,18 +4,18 @@ function increment(a){
    firstOperand.push(a);
    let input1 = firstOperand.join('') -0;
    document.getElementById("numbers").innerHTML = input1; //shows operand in display
-   if(document.getElementById("numbers").innerHTML == input1 + " +"){
+   if(document.getElementById("numbers").innerHTML == firstOperand.join('') -0 + " +"){
       increment(a);
       secondOperand.push(a);
-      let input2 = secondOperand.join('') -0;
-      document.getElementById("numbers").innerHTML = input1 + " +" + input2;
    }
-}
+      let input2 = secondOperand.join('') -0;
+      document.getElementById("numbers").innerHTML = firstOperand.join('') -0 + " +" + secondOperand.join('') -0;
+   }
+
 
 document.getElementById("add").addEventListener("click", addition);
 function addition(){
-   firstOperand.push(" +");
-   document.getElementById("numbers").innerHTML = firstOperand.join('') -0;
+   document.getElementById("numbers").innerHTML = firstOperand.join('') -0 + " +";
    }
 
 
