@@ -1,31 +1,36 @@
-let firstOperand = [];
-let secondOperand = [];
-function increment(a){
-   firstOperand.push(a);
-   let input1 = firstOperand.join('') -0;
-   document.getElementById("numbers").innerHTML = input1; //shows operand in display
-   if(document.getElementById("numbers").innerHTML == firstOperand.join('') -0 + " +"){
-      increment(a);
-      secondOperand.push(a);
+let value = "";
+let value2 = "";
+let buttons = document.querySelectorAll("button[id='num']");
+for (let i = 0; i < buttons.length; i++) {
+   buttons[i].addEventListener("click", function() {
+      value += this.value;
+      value = parseFloat(value);
+      document.getElementById("numbers").innerHTML = value;
+      console.log(value);
+      console.log(typeof value);
+   });
+}
+
+document.getElementById("add").addEventListener("click", function(){
+   document.getElementById("numbers").innerHTML = value + " +";
+   });
+
+
+function clearEntry(){
+   value = value.toString();
+   value = value.slice(0, -1);
+   value = parseFloat(value);
+   if(isNaN(value)){
+      value = 0;
    }
-      let input2 = secondOperand.join('') -0;
-      document.getElementById("numbers").innerHTML = firstOperand.join('') -0 + " +" + secondOperand.join('') -0;
-   }
+   document.getElementById("numbers").innerHTML = value;
+   console.log(value);
+   console.log(typeof value);
+}
 
-
-document.getElementById("add").addEventListener("click", addition);
-function addition(){
-   document.getElementById("numbers").innerHTML = firstOperand.join('') -0 + " +";
-   }
-
-
-
-function ce(){
-   firstOperand.pop();
-   document.getElementById("numbers").innerHTML= firstOperand.join('') -0;
-   if(firstOperand.join('') == 0){
-      document.getElementById("numbers").innerHTML = "";
-   }
+function allClear(){
+ value = 0;
+ document.getElementById("numbers").innerHTML = value;
 }
 
 function operate(a, operator, b){
