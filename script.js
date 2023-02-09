@@ -1,6 +1,7 @@
 let firstOperand = "";
+let operation = "";
 let secondOperand = "";
-var operands = [firstOperand, secondOperand];
+var operands = [firstOperand];
 let buttons = document.querySelectorAll("button[id='num']");
 for (let i = 0; i < buttons.length; i++) {
    buttons[i].addEventListener("click", function() {
@@ -29,10 +30,18 @@ function allClear(){
  document.getElementById("numbers").innerHTML = operands[0];
 }
 
-function operate(){
-   let display = operands[0].toString();
-   document.getElementById("numbers").innerHTML = display + " " + "+";
+function myFunction(){
+   let button = document.querySelectorAll("button[id='operator'");
+   for(let i =0; i < button.length; i++){
+      button[i].addEventListener("click", function(){
+         var x = this.value;
+         console.log(x);
+      })
+   }
 }
+
+function operate(){
+   myFunction()};
 
 function add(a,b){
 
