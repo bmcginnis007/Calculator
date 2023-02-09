@@ -29,9 +29,9 @@ function allClear(){
  document.getElementById("numbers").innerHTML = operands[0];
 }
 
-function operate(a, operator, b){
-   
-
+function operate(){
+   let display = operands[0].toString();
+   document.getElementById("numbers").innerHTML = display + " " + "+";
 }
 
 function add(a,b){
