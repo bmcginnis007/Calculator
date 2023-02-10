@@ -8,8 +8,8 @@ body{
     align-items: center;
     justify-content: center;
     background-image: url("https://cdn.pixabay.com/photo/2016/12/18/09/10/trees-1915251_960_720.jpg");
-    
-}
+    background-size: cover;
+    }
 
 .calculatorBody {
     display: grid;

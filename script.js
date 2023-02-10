@@ -1,7 +1,7 @@
 let firstOperand = "";
 let operation = "";
 let secondOperand = "";
-var operands = [firstOperand];
+const operands = [firstOperand,secondOperand];
 let buttons = document.querySelectorAll("button[id='num']");
 for (let i = 0; i < buttons.length; i++) {
    buttons[i].addEventListener("click", function() {
@@ -27,21 +27,31 @@ function clearEntry(){
 
 function allClear(){
  operands[0] = 0;
- document.getElementById("numbers").innerHTML = operands[0];
+ operands[1] = 0;
+ document.getElementById("numbers").innerHTML = 0;
 }
 
-function myFunction(){
+
    let button = document.querySelectorAll("button[id='operator'");
    for(let i =0; i < button.length; i++){
       button[i].addEventListener("click", function(){
          var x = this.value;
-         console.log(x);
+         document.getElementById("numbers").innerHTML = operands [0] + x;
+         console.log(typeof operands[0]);
       })
    }
-}
 
-function operate(){
-   myFunction()};
+
+function update(){
+   for (let i = 0; i < buttons.length; i++) {
+      buttons[i].addEventListener("click", function() {
+         operands[1] += this.value;
+         operands[1] = parseFloat(operands[1]);
+         console.log(operands[0].toString() + operands[1].toString());
+         console.log(typeof operands[1]);
+      });
+   }
+}
 
 function add(a,b){
 
