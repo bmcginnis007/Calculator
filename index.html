@@ -9,29 +9,30 @@
             <div class="display">
                 <div class="entry">
                     <span id="numbers" style="float: right"></span>
+                    <span id="result"></span>
                 </div>
             </div>
             <div class="calculatorBody">
                 <div></div>
-                <button class="btn" id="clear" onclick="allClear()">C</button>
-                <button class="btn" id="clearEntry" onclick="clearEntry()">CE</button>
+                <button class="btn" id="clear">C</button>
+                <button class="btn" id="clearEntry">CE</button>
                 <div></div>
                 <button class="btn" id="num" value="7">7</button>
                 <button class="btn" id="num" value="8">8</button>
                 <button class="btn" id="num" value="9">9</button>
-                <button class="btn" id="operator" value="&divide">&divide;</button>
+                <button class="btn" id="operator" value="/">&divide;</button>
                 <button class="btn" id="num" value="4">4</button>
                 <button class="btn" id="num" value="5">5</button>
                 <button class="btn" id="num" value="6">6</button>
-                <button class="btn" id="operator" value="&times">&times;</button>
+                <button class="btn" id="operator" value="x">&times;</button>
                 <button class="btn" id="num" value="1">1</button>
                 <button class="btn" id="num" value="2">2</button>
                 <button class="btn" id="num" value="3">3</button>
                 <button class="btn" id="operator" value="-">-</button>
-                <button class="btn" id="decimal">.</button>
+                <button class="btn" onclick="addDecimal()">.</button>
                 <button class="btn" id="num" value="0">0</button>
                 <button class="btn" id="equals">=</button>
-                <button class="btn" id="operator" value="+" onclick="update()">+</button>
+                <button class="btn" id="operator" value="+">+</button>
              </div>
         </div>
     </body>
