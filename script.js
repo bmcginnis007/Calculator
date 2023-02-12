@@ -1,80 +1,3 @@
-/*let firstOperand = "";
-let operation = "";
-let secondOperand = "";
-const operands = [firstOperand,secondOperand];
-let buttons = document.querySelectorAll("button[id='num']");
-for (let i = 0; i < buttons.length; i++) {
-   buttons[i].addEventListener("click", function() {
-      operands[0] += this.value;
-      operands[0] = parseFloat(operands[0]);
-      document.getElementById("numbers").innerHTML = operands[0];
-      console.log(operands[0]);
-      console.log(typeof operands[0]);
-   });
-}
-
-function clearEntry(){
-   operands[0] = operands[0].toString();
-   operands[0] = operands[0].slice(0, -1);
-   operands[0] = parseFloat(operands[0]);
-   if(isNaN(operands[0])){
-      operands[0] = 0;
-   }
-   document.getElementById("numbers").innerHTML = operands[0];
-   console.log(operands[0]);
-   console.log(typeof operands[0]);
-}
-
-function allClear(){
- operands[0] = 0;
- operands[1] = 0;
- document.getElementById("numbers").innerHTML = 0;
-}
-
-
-   let button = document.querySelectorAll("button[id='operator'");
-   for(let i =0; i < button.length; i++){
-      button[i].addEventListener("click", function(){
-         var x = this.value;
-       var a =  document.getElementById("numbers").innerHTML = operands [0] + " " + x;
-       console.log(a);
-       console.log(typeof a);
-      })
-   }
-
-
-function update(){
-   for (let i = 0; i < buttons.length; i++) {
-      buttons[i].addEventListener("click", function() {
-         operands[1] += this.value;
-         operands[1] = parseFloat(operands[1]);
-         console.log(operands[0].toString() + operands[1].toString());
-         console.log(typeof operands[1]);
-      });
-   }
-}
-
-function add(a,b){
-
-   return a + b;
-}
-
-function subtract(a,b){
-   return a - b;
-}
-
-function multiply(a,b){
-   return a * b;
-}
-
-function divide(a,b){
-   return a / b;
-}
-function solution(){
-   console.log(add(firstOperand.join('') -0, 2));
-}
-*/
-
 let firstOperand = "";
 let operator = "";
 let secondOperand = "";
@@ -95,6 +18,7 @@ for (let i = 0; i < buttons.length; i++) {
    });
 }
 
+
 const operatorButtons = document.querySelectorAll("button[id='operator']");
 for (let i = 0; i < operatorButtons.length; i++) {
    operatorButtons[i].addEventListener("click", function() {
@@ -109,11 +33,17 @@ for (let i = 0; i < operatorButtons.length; i++) {
 }
 
 function addDecimal(){
-   if (!secondOperand && !firstOperand.includes(".")){
-      firstOperand = firstOperand + ".";
-      display.innerHTML = firstOperand;
-   }
+  if (!secondOperand && !firstOperand.includes(".")){
+   firstOperand = firstOperand + ".";
+   display.innerHTML = firstOperand;
+  }
+  else if (firstOperand && !secondOperand.includes(".")){
+   secondOperand = secondOperand + ".";
+   display.innerHTML = firstOperand + operator + secondOperand;
 }
+}
+
+
 document.getElementById("equals").addEventListener("click", function() {
    firstOperand = parseFloat(firstOperand);
    secondOperand = parseFloat(secondOperand);
@@ -131,6 +61,9 @@ document.getElementById("equals").addEventListener("click", function() {
          result.innerHTML = firstOperand / secondOperand;
          break;
    }
+   if (result.innerHTML.length > 15){
+      result.innerHTML = Math.round(result);
+   }
 });
 
 
@@ -145,7 +78,7 @@ document.getElementById("clear").addEventListener("click", function() {
 
 
 
-document.getElementById("clearEntry").addEventListener("click", function(){
+document.getElementById("clearEntry").addEventListener("click", function(){ //removes last character from firstOperand string if operator has not been selected. Otherwise, removes last character from secondOperand
   if(!operator){
    firstOperand = firstOperand.slice(0, -1);
    display.innerHTML = firstOperand;
@@ -156,3 +89,12 @@ document.getElementById("clearEntry").addEventListener("click", function(){
   }
 })
 
+function limitDisplay(){
+   let msg = "ERROR";
+if (display.innerHTML.length > 15) {
+   alert("Input field at maximum");
+}
+console.log(display.innerHTML.length);
+}
+
+limitDisplay();
