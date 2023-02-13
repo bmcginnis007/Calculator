@@ -13,7 +13,7 @@ for (let i = 0; i < buttons.length; i++) {
          display.innerHTML = firstOperand;
       } else {
          secondOperand += this.value;
-         display.innerHTML = firstOperand + " " + operator + " " + secondOperand;
+         display.innerHTML = secondOperand;
       }
    });
 }
@@ -24,10 +24,7 @@ for (let i = 0; i < operatorButtons.length; i++) {
    operatorButtons[i].addEventListener("click", function() {
       if (!operator){
       operator = this.value;
-      display.innerHTML = firstOperand + " " + operator;
-      }
-      else{
-         display.innerHTML = firstOperand + " " + operator;
+      display.innerHTML = firstOperand;
       }
    });
 }
@@ -39,7 +36,7 @@ function addDecimal(){
   }
   else if (firstOperand && !secondOperand.includes(".")){
    secondOperand = secondOperand + ".";
-   display.innerHTML = firstOperand + operator + secondOperand;
+   display.innerHTML = secondOperand;
 }
 }
 
@@ -54,7 +51,7 @@ document.getElementById("equals").addEventListener("click", function() {
       case "-":
          result.innerHTML = firstOperand - secondOperand;
          break;
-      case "x":
+      case "*":
          result.innerHTML = firstOperand * secondOperand;
          break;
       case "/":
@@ -64,6 +61,7 @@ document.getElementById("equals").addEventListener("click", function() {
    if (result.innerHTML.length > 15){
       result.innerHTML = Math.round(result);
    }
+   console.log(typeof result.innerHTML);
 });
 
 
@@ -96,6 +94,9 @@ if (display.innerHTML.length > 15 && !operator) {
 }
 else if (display.innerHTML.length >15 && operator){
    secondOperand = secondOperand.slice(0, -1);
-   display.innerHTML = firstOperand + " " + operator + secondOperand;
+   display.innerHTML = secondOperand;
 }
 }
+
+
+
