@@ -90,11 +90,12 @@ document.getElementById("clearEntry").addEventListener("click", function(){ //re
 })
 
 function limitDisplay(){
-   let msg = "ERROR";
-if (display.innerHTML.length > 15) {
-   alert("Input field at maximum");
+if (display.innerHTML.length > 15 && !operator) {
+   firstOperand = firstOperand.slice(0, -1);
+   display.innerHTML = firstOperand;
 }
-console.log(display.innerHTML.length);
+else if (display.innerHTML.length >15 && operator){
+   secondOperand = secondOperand.slice(0, -1);
+   display.innerHTML = firstOperand + " " + operator + secondOperand;
 }
-
-limitDisplay();
+}
