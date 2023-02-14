@@ -2,7 +2,8 @@ let firstOperand = "";
 let operator = "";
 let secondOperand = "";
 let display = document.getElementById("numbers");
-let result = document.getElementById("result");
+let secondDisplay = document.getElementById("result");
+let result = 0;
 
 
 const buttons = document.querySelectorAll("button[id='num']");
@@ -46,22 +47,27 @@ document.getElementById("equals").addEventListener("click", function() {
    secondOperand = parseFloat(secondOperand);
    switch (operator) {
       case "+":
-         result.innerHTML = firstOperand + secondOperand;
+         result = firstOperand + secondOperand;
+         secondDisplay.innerHTML = result;
          break;
       case "-":
-         result.innerHTML = firstOperand - secondOperand;
+         result = firstOperand - secondOperand;
+         secondDisplay.innerHTML = result;
          break;
       case "*":
-         result.innerHTML = firstOperand * secondOperand;
+         result = firstOperand * secondOperand;
+         secondDisplay.innerHTML = result;
          break;
       case "/":
-         result.innerHTML = firstOperand / secondOperand;
+         result = firstOperand / secondOperand;
+         secondDisplay.innerHTML = result;
          break;
    }
-   if (result.innerHTML.length > 15){
-      result.innerHTML = Math.round(result);
+   if (secondDisplay.innerHTML.length > 15){
+      secondDisplay.innerHTML.slice(0, -1);
    }
-   console.log(typeof result.innerHTML);
+   console.log(result);
+   console.log(typeof result);
 });
 
 
@@ -71,7 +77,7 @@ document.getElementById("clear").addEventListener("click", function() {
    operator = "";
    secondOperand = "";
    display.innerHTML = "";
-   result.innerHTML = "";
+   secondDisplay.innerHTML = "";
 });
 
 
