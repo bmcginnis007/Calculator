@@ -11,10 +11,12 @@ for (let i = 0; i < buttons.length; i++) {
    buttons[i].addEventListener("click", function() {
       if (!operator) {
          firstOperand += this.value;
-         display.innerHTML = firstOperand;
+         secondDisplay.innerHTML = firstOperand;
+         console.log(firstOperand)
       } else {
          secondOperand += this.value;
-         display.innerHTML = secondOperand;
+         secondDisplay.innerHTML = secondOperand;
+         console.log(secondOperand);
       }
    });
 }
@@ -25,7 +27,7 @@ for (let i = 0; i < operatorButtons.length; i++) {
    operatorButtons[i].addEventListener("click", function() {
       if (!operator){
       operator = this.value;
-      display.innerHTML = firstOperand;
+      display.innerHTML = firstOperand + " " + operator;
       }
    });
 }
@@ -33,11 +35,11 @@ for (let i = 0; i < operatorButtons.length; i++) {
 function addDecimal(){
   if (!secondOperand && !firstOperand.includes(".")){
    firstOperand = firstOperand + ".";
-   display.innerHTML = firstOperand;
+   secondDisplay.innerHTML = firstOperand;
   }
   else if (firstOperand && !secondOperand.includes(".")){
    secondOperand = secondOperand + ".";
-   display.innerHTML = secondOperand;
+   secondDisplay.innerHTML = secondOperand;
 }
 }
 
@@ -45,28 +47,51 @@ function addDecimal(){
 document.getElementById("equals").addEventListener("click", function() {
    firstOperand = parseFloat(firstOperand);
    secondOperand = parseFloat(secondOperand);
+   if (firstOperand && operator && secondOperand){
    switch (operator) {
       case "+":
          result = firstOperand + secondOperand;
-         secondDisplay.innerHTML = result;
+         display.innerHTML = firstOperand + " " + operator + " " + secondOperand + " " + "=";
+         secondDisplay.innerHTML = result.toLocaleString("en-US");
+         firstOperand = result.toString();
+         secondOperand = "";
+         operator = "";
          break;
       case "-":
          result = firstOperand - secondOperand;
-         secondDisplay.innerHTML = result;
+         display.innerHTML = firstOperand + " " + operator + " " + secondOperand + " " + "=";
+         secondDisplay.innerHTML = result.toLocaleString("en-US");
+         firstOperand = result.toString();
+         secondOperand = "";
+         operator = "";
          break;
       case "*":
          result = firstOperand * secondOperand;
-         secondDisplay.innerHTML = result;
+         display.innerHTML = firstOperand + " " + operator + " " + secondOperand + " " + "=";
+         secondDisplay.innerHTML = result.toLocaleString("en-US");
+         firstOperand = result.toString();
+         secondOperand = "";
+         operator = "";
          break;
       case "/":
          result = firstOperand / secondOperand;
-         secondDisplay.innerHTML = result;
+         display.innerHTML = firstOperand + " " + operator + " " + secondOperand + " " + "=";
+         secondDisplay.innerHTML = result.toLocaleString("en-US");
+         firstOperand = result.toString();
+         secondOperand = "";
+         operator = "";
          break;
    }
-   if (secondDisplay.innerHTML.length > 15){
-      secondDisplay.innerHTML.slice(0, -1);
+}
+   if (operator && secondDisplay.innerHTML === "0"){
+      alert("Trying to divide by zero is like trying to divide your age by the number of times you've used a calculator correctly :D");
+      display.innerHTML = "";
+      secondDisplay.innerHTML = "";
+      firstOperand = "";
+      secondOperand = "";
+      operator = "";
    }
-   console.log(result);
+   console.log(secondDisplay.innerHTML);
    console.log(typeof result);
 });
 
@@ -85,24 +110,25 @@ document.getElementById("clear").addEventListener("click", function() {
 document.getElementById("clearEntry").addEventListener("click", function(){ //removes last character from firstOperand string if operator has not been selected. Otherwise, removes last character from secondOperand
   if(!operator){
    firstOperand = firstOperand.slice(0, -1);
-   display.innerHTML = firstOperand;
+   secondDisplay.innerHTML = firstOperand;
   }
   else{
    secondOperand =  secondOperand.slice(0, -1);
-   display.innerHTML = firstOperand + " " + operator + secondOperand;
+   secondDisplay.innerHTML = firstOperand + " " + operator + secondOperand;
   }
 })
 
 function limitDisplay(){
-if (display.innerHTML.length > 15 && !operator) {
+if (secondDisplay.innerHTML.length > 15 && !operator) {
    firstOperand = firstOperand.slice(0, -1);
    display.innerHTML = firstOperand;
 }
-else if (display.innerHTML.length >15 && operator){
+else if (secondDisplay.innerHTML.length >15 && operator){
    secondOperand = secondOperand.slice(0, -1);
    display.innerHTML = secondOperand;
 }
 }
+
 
 
 
