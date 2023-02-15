@@ -11,8 +11,10 @@ for (let i = 0; i < buttons.length; i++) {
    buttons[i].addEventListener("click", function() {
       if (!operator) {
          firstOperand += this.value;
-         secondDisplay.innerHTML = firstOperand;
+         firstOperand = parseFloat(firstOperand);
+         secondDisplay.innerHTML = firstOperand.toLocaleString("en-US");
          console.log(firstOperand)
+         console.log(typeof firstOperand);
       } else {
          secondOperand += this.value;
          secondDisplay.innerHTML = secondOperand;
