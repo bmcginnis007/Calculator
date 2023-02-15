@@ -26,6 +26,7 @@ body{
     border-width: 0px 3px 3px 3px;
 }
 .display{
+    font-family: 'Orbitron', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,6 +98,7 @@ body{
 }
 
 #result{
+    font-family: 'Orbitron', sans-serif;
     color: greenyellow;
     position: absolute;
     bottom: 0;

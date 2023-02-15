@@ -11,8 +11,7 @@ for (let i = 0; i < buttons.length; i++) {
    buttons[i].addEventListener("click", function() {
       if (!operator) {
          firstOperand += this.value;
-         firstOperand = parseFloat(firstOperand);
-         secondDisplay.innerHTML = firstOperand.toLocaleString("en-US");
+         secondDisplay.innerHTML = firstOperand;
          console.log(firstOperand)
          console.log(typeof firstOperand);
       } else {
@@ -31,6 +30,14 @@ for (let i = 0; i < operatorButtons.length; i++) {
       operator = this.value;
       display.innerHTML = firstOperand + " " + operator;
       }
+      if (!firstOperand){
+         firstOperand = "0";
+         display.innerHTML = firstOperand + " " + operator;
+      }
+      if (firstOperand && operator){
+         operator = this.value;
+         display.innerHTML = firstOperand + " " + operator;
+      }
    });
 }
 
@@ -38,6 +45,7 @@ function addDecimal(){
   if (!secondOperand && !firstOperand.includes(".")){
    firstOperand = firstOperand + ".";
    secondDisplay.innerHTML = firstOperand;
+   console.log(typeof firstOperand);
   }
   else if (firstOperand && !secondOperand.includes(".")){
    secondOperand = secondOperand + ".";
@@ -52,7 +60,7 @@ document.getElementById("equals").addEventListener("click", function() {
    if (firstOperand && operator && secondOperand){
    switch (operator) {
       case "+":
-         result = firstOperand + secondOperand;
+         result = (firstOperand * 10 + secondOperand * 10) / 10;
          display.innerHTML = firstOperand + " " + operator + " " + secondOperand + " " + "=";
          secondDisplay.innerHTML = result.toLocaleString("en-US");
          firstOperand = result.toString();
@@ -85,8 +93,8 @@ document.getElementById("equals").addEventListener("click", function() {
          break;
    }
 }
-   if (operator && secondDisplay.innerHTML === "0"){
-      alert("Trying to divide by zero is like trying to divide your age by the number of times you've used a calculator correctly :D");
+   if (operator === "/" && secondDisplay.innerHTML === "0"){
+      alert("Trying to divide by zero is like trying to divide your age by the number of times you've used a calculator correctly &#128512;");
       display.innerHTML = "";
       secondDisplay.innerHTML = "";
       firstOperand = "";
