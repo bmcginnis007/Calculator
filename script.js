@@ -38,6 +38,12 @@ for (let i = 0; i < operatorButtons.length; i++) {
          operator = this.value;
          display.innerHTML = firstOperand + " " + operator;
       }
+      if (operator === "/"){
+         display.innerHTML = firstOperand + " " + "&divide;";
+      }
+      if (operator === "*"){
+         display.innerHTML = firstOperand + " " + "&times;";
+      }
    });
 }
 
@@ -47,6 +53,9 @@ function addDecimal(){
    secondDisplay.innerHTML = firstOperand;
    console.log(typeof firstOperand);
   }
+if (firstOperand.includes(".")){
+   firstOperand.slice(0, -1);
+}
   else if (firstOperand && !secondOperand.includes(".")){
    secondOperand = secondOperand + ".";
    secondDisplay.innerHTML = secondOperand;
@@ -69,6 +78,7 @@ document.getElementById("equals").addEventListener("click", function() {
          break;
       case "-":
          result = firstOperand - secondOperand;
+         console.log(typeof secondOperand);
          display.innerHTML = firstOperand + " " + operator + " " + secondOperand + " " + "=";
          secondDisplay.innerHTML = result.toLocaleString("en-US");
          firstOperand = result.toString();
@@ -77,6 +87,7 @@ document.getElementById("equals").addEventListener("click", function() {
          break;
       case "*":
          result = firstOperand * secondOperand;
+         operator = "&times;"
          display.innerHTML = firstOperand + " " + operator + " " + secondOperand + " " + "=";
          secondDisplay.innerHTML = result.toLocaleString("en-US");
          firstOperand = result.toString();
@@ -85,6 +96,7 @@ document.getElementById("equals").addEventListener("click", function() {
          break;
       case "/":
          result = firstOperand / secondOperand;
+         operator = "&divide;"
          display.innerHTML = firstOperand + " " + operator + " " + secondOperand + " " + "=";
          secondDisplay.innerHTML = result.toLocaleString("en-US");
          firstOperand = result.toString();
@@ -94,15 +106,13 @@ document.getElementById("equals").addEventListener("click", function() {
    }
 }
    if (operator === "/" && secondDisplay.innerHTML === "0"){
-      alert("Trying to divide by zero is like trying to divide your age by the number of times you've used a calculator correctly &#128512;");
+      alert("Trying to divide by zero is like trying to divide your age by the number of times you've used a calculator correctly 😃😃😃");
       display.innerHTML = "";
       secondDisplay.innerHTML = "";
       firstOperand = "";
       secondOperand = "";
       operator = "";
    }
-   console.log(secondDisplay.innerHTML);
-   console.log(typeof result);
 });
 
 
