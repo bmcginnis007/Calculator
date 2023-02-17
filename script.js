@@ -3,7 +3,7 @@ let operator = "";
 let secondOperand = "";
 let display = document.getElementById("numbers");
 let secondDisplay = document.getElementById("result");
-let result = 0;
+let result = "";
 
 
 const buttons = document.querySelectorAll("button[id='num']");
@@ -12,16 +12,17 @@ for (let i = 0; i < buttons.length; i++) {
       if (!operator) {
          firstOperand += this.value;
          secondDisplay.innerHTML = firstOperand;
-         console.log(firstOperand)
+         console.log(firstOperand);
          console.log(typeof firstOperand);
-      } else {
+      }
+      else {
          secondOperand += this.value;
          secondDisplay.innerHTML = secondOperand;
          console.log(secondOperand);
+         console.log(typeof secondOperand);
       }
    });
 }
-
 
 const operatorButtons = document.querySelectorAll("button[id='operator']");
 for (let i = 0; i < operatorButtons.length; i++) {
@@ -64,8 +65,8 @@ if (firstOperand.includes(".")){
 
 
 document.getElementById("equals").addEventListener("click", function() {
-   firstOperand = parseFloat(firstOperand);
-   secondOperand = parseFloat(secondOperand);
+  /* firstOperand = parseFloat(firstOperand);
+   secondOperand = parseFloat(secondOperand);*/
    if (firstOperand && operator && secondOperand){
    switch (operator) {
       case "+":
@@ -75,6 +76,8 @@ document.getElementById("equals").addEventListener("click", function() {
          firstOperand = result.toString();
          secondOperand = "";
          operator = "";
+         console.log(typeof firstOperand);
+         console.log(typeof secondOperand);
          break;
       case "-":
          result = firstOperand - secondOperand;
@@ -105,7 +108,7 @@ document.getElementById("equals").addEventListener("click", function() {
          break;
    }
 }
-   if (operator === "/" && secondDisplay.innerHTML === "0"){
+   if (operator === "/" && secondOperand === "0"){
       alert("Trying to divide by zero is like trying to divide your age by the number of times you've used a calculator correctly 😃😃😃");
       display.innerHTML = "";
       secondDisplay.innerHTML = "";
@@ -113,6 +116,8 @@ document.getElementById("equals").addEventListener("click", function() {
       secondOperand = "";
       operator = "";
    }
+   console.log(result);
+   console.log(typeof result);
 });
 
 
