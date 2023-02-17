@@ -15,11 +15,19 @@ for (let i = 0; i < buttons.length; i++) {
          console.log(firstOperand);
          console.log(typeof firstOperand);
       }
-      else {
+      if (!operator && firstOperand === "00"){
+         firstOperand = "0";
+         secondDisplay.innerHTML = firstOperand;
+      }
+      if (operator && firstOperand){
          secondOperand += this.value;
          secondDisplay.innerHTML = secondOperand;
          console.log(secondOperand);
          console.log(typeof secondOperand);
+      }
+      if (secondOperand === "00"){
+         secondOperand = "0";
+         secondDisplay.innerHTML = secondOperand;
       }
    });
 }
@@ -53,16 +61,20 @@ function addDecimal(){
    firstOperand = firstOperand + ".";
    secondDisplay.innerHTML = firstOperand;
    console.log(typeof firstOperand);
-  }
-if (firstOperand.includes(".")){
-   firstOperand.slice(0, -1);
+   }
+   if (firstOperand === "."){
+      firstOperand = "0" + ".";
+      secondDisplay.innerHTML = firstOperand;
+   }
+   if (firstOperand && operator){
+      secondOperand = secondOperand + ".";
+      secondDisplay.innerHTML = secondOperand;
+   }
+   if (secondOperand === "."){
+      secondOperand = "0" + ".";
+      secondDisplay.innerHTML = secondOperand;
+   }
 }
-  else if (firstOperand && !secondOperand.includes(".")){
-   secondOperand = secondOperand + ".";
-   secondDisplay.innerHTML = secondOperand;
-}
-}
-
 
 document.getElementById("equals").addEventListener("click", function() {
   /* firstOperand = parseFloat(firstOperand);
@@ -108,7 +120,7 @@ document.getElementById("equals").addEventListener("click", function() {
          break;
    }
 }
-   if (operator === "/" && secondOperand === "0"){
+   if (result === Infinity){
       alert("Trying to divide by zero is like trying to divide your age by the number of times you've used a calculator correctly 😃😃😃");
       display.innerHTML = "";
       secondDisplay.innerHTML = "";
@@ -116,8 +128,6 @@ document.getElementById("equals").addEventListener("click", function() {
       secondOperand = "";
       operator = "";
    }
-   console.log(result);
-   console.log(typeof result);
 });
 
 
@@ -144,13 +154,13 @@ document.getElementById("clearEntry").addEventListener("click", function(){ //re
 })
 
 function limitDisplay(){
-if (secondDisplay.innerHTML.length > 15 && !operator) {
+if (secondDisplay.innerHTML.length > 8 && !operator) {
    firstOperand = firstOperand.slice(0, -1);
-   display.innerHTML = firstOperand;
+   secondDisplay.innerHTML = firstOperand;
 }
-else if (secondDisplay.innerHTML.length >15 && operator){
+else if (secondDisplay.innerHTML.length > 8 && operator){
    secondOperand = secondOperand.slice(0, -1);
-   display.innerHTML = secondOperand;
+   secondDisplay.innerHTML = secondOperand;
 }
 }
 
