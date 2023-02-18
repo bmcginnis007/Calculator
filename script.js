@@ -3,7 +3,7 @@ let operator = "";
 let secondOperand = "";
 let display = document.getElementById("numbers");
 let secondDisplay = document.getElementById("result");
-let result = "";
+let result = 0;
 
 
 const buttons = document.querySelectorAll("button[id='num']");
@@ -13,8 +13,6 @@ for (let i = 0; i < buttons.length; i++) {
          firstOperand += this.value;
          secondDisplay.innerHTML = firstOperand;
          secondDisplay.style.fontSize = "50px";
-         console.log(firstOperand);
-         console.log(typeof firstOperand);
       }
       if (!operator && firstOperand === "00"){
          firstOperand = "0";
@@ -24,8 +22,6 @@ for (let i = 0; i < buttons.length; i++) {
          secondOperand += this.value;
          secondDisplay.innerHTML = secondOperand;
          secondDisplay.style.fontSize = "50px";
-         console.log(secondOperand);
-         console.log(typeof secondOperand);
       }
       if (secondOperand === "00"){
          secondOperand = "0";
@@ -55,6 +51,11 @@ for (let i = 0; i < operatorButtons.length; i++) {
       if (operator === "*"){
          display.innerHTML = firstOperand + " " + "&times;";
       }
+      if (display.innerHTML === "0" + " " + "-"){
+         secondDisplay.innerHTML = "-";
+         console.log(firstOperand);
+      }
+      console.log(display.innerHTML);
    });
 }
 
@@ -62,16 +63,16 @@ function addDecimal(){
   if (!secondOperand && !firstOperand.includes(".")){
    firstOperand = firstOperand + ".";
    secondDisplay.innerHTML = firstOperand;
-   console.log(typeof firstOperand);
    }
    if (firstOperand === "."){
       firstOperand = "0" + ".";
       secondDisplay.innerHTML = firstOperand;
    }
-   if (firstOperand && operator){
+   if (firstOperand && operator && !secondOperand.includes(".")){
       secondOperand = secondOperand + ".";
       secondDisplay.innerHTML = secondOperand;
    }
+   
    if (secondOperand === "."){
       secondOperand = "0" + ".";
       secondDisplay.innerHTML = secondOperand;
@@ -88,13 +89,10 @@ document.getElementById("equals").addEventListener("click", function() {
          firstOperand = result.toString();
          secondOperand = "";
          operator = "";
-         console.log(typeof firstOperand);
-         console.log(typeof secondOperand);
-         console.log(display.innerHTML.length);
+         console.log(result);
          break;
       case "-":
          result = firstOperand - secondOperand;
-         console.log(typeof secondOperand);
          display.innerHTML = firstOperand + " " + operator + " " + secondOperand + " " + "=";
          secondDisplay.innerHTML = result.toLocaleString("en-US");
          firstOperand = result.toString();
@@ -130,7 +128,7 @@ document.getElementById("equals").addEventListener("click", function() {
       operator = "";
    }
 
-   if (secondDisplay.innerHTML.length > 8){
+   if (secondDisplay.innerHTML.length > 11){
       secondDisplay.style.fontSize = "23px";
    }
 });
@@ -152,9 +150,13 @@ document.getElementById("clearEntry").addEventListener("click", function(){ //re
    firstOperand = firstOperand.slice(0, -1);
    secondDisplay.innerHTML = firstOperand;
   }
-  else{
+  if (firstOperand && !secondOperand){
+   operator = "";
+   display.innerHTML = firstOperand + operator;
+   }
+  if (firstOperand && secondOperand){
    secondOperand =  secondOperand.slice(0, -1);
-   secondDisplay.innerHTML = firstOperand + " " + operator + secondOperand;
+   secondDisplay.innerHTML = secondOperand;
   }
 })
 
