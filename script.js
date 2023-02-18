@@ -12,6 +12,7 @@ for (let i = 0; i < buttons.length; i++) {
       if (!operator) {
          firstOperand += this.value;
          secondDisplay.innerHTML = firstOperand;
+         secondDisplay.style.fontSize = "50px";
          console.log(firstOperand);
          console.log(typeof firstOperand);
       }
@@ -22,6 +23,7 @@ for (let i = 0; i < buttons.length; i++) {
       if (operator && firstOperand){
          secondOperand += this.value;
          secondDisplay.innerHTML = secondOperand;
+         secondDisplay.style.fontSize = "50px";
          console.log(secondOperand);
          console.log(typeof secondOperand);
       }
@@ -77,8 +79,6 @@ function addDecimal(){
 }
 
 document.getElementById("equals").addEventListener("click", function() {
-  /* firstOperand = parseFloat(firstOperand);
-   secondOperand = parseFloat(secondOperand);*/
    if (firstOperand && operator && secondOperand){
    switch (operator) {
       case "+":
@@ -90,6 +90,7 @@ document.getElementById("equals").addEventListener("click", function() {
          operator = "";
          console.log(typeof firstOperand);
          console.log(typeof secondOperand);
+         console.log(display.innerHTML.length);
          break;
       case "-":
          result = firstOperand - secondOperand;
@@ -127,6 +128,10 @@ document.getElementById("equals").addEventListener("click", function() {
       firstOperand = "";
       secondOperand = "";
       operator = "";
+   }
+
+   if (secondDisplay.innerHTML.length > 8){
+      secondDisplay.style.fontSize = "23px";
    }
 });
 
