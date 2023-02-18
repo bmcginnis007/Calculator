@@ -1,6 +1,7 @@
 let firstOperand = "";
 let operator = "";
 let secondOperand = "";
+let counter = 0;
 let display = document.getElementById("numbers");
 let secondDisplay = document.getElementById("result");
 let result = 0;
@@ -27,6 +28,11 @@ for (let i = 0; i < buttons.length; i++) {
          secondOperand = "0";
          secondDisplay.innerHTML = secondOperand;
       }
+      if (display.innerHTML === "0" + " " + "-"){
+         firstOperand = "0" - secondOperand;
+         secondDisplay.innerHTML = firstOperand;
+         console.log(secondOperand);
+      }
    });
 }
 
@@ -51,11 +57,10 @@ for (let i = 0; i < operatorButtons.length; i++) {
       if (operator === "*"){
          display.innerHTML = firstOperand + " " + "&times;";
       }
-      if (display.innerHTML === "0" + " " + "-"){
-         secondDisplay.innerHTML = "-";
-         console.log(firstOperand);
+      if (firstOperand < 0){ // enables negative numbers to be entered into the display
+         secondDisplay.innerHTML = firstOperand;
+         secondOperand = "";
       }
-      console.log(display.innerHTML);
    });
 }
 
