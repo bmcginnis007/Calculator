@@ -28,12 +28,15 @@ for (let i = 0; i < buttons.length; i++) {
          secondOperand = "0";
          secondDisplay.innerHTML = secondOperand;
       }
-      if (display.innerHTML === "0" + " " + "-"){
-         firstOperand = "0" - secondOperand;
+      if (counter > 0){
+         firstOperand = "0" - this.value;
          secondDisplay.innerHTML = firstOperand;
-         console.log(secondOperand);
       }
-   });
+      console.log(firstOperand);
+      console.log(typeof firstOperand);
+      console.log(typeof secondOperand);
+      console.log(secondOperand);
+ });
 }
 
 const operatorButtons = document.querySelectorAll("button[id='operator']");
@@ -42,10 +45,21 @@ for (let i = 0; i < operatorButtons.length; i++) {
       if (!operator){
       operator = this.value;
       display.innerHTML = firstOperand + " " + operator;
-      }
+      }/*
       if (!firstOperand){
          firstOperand = "0";
          display.innerHTML = firstOperand + " " + operator;
+      }*/
+      if(!firstOperand && operator === "+"){
+         operator = "";
+         display.innerHTML = "";
+      }
+      if (operator === "-" && !firstOperand){
+         counter = 1;
+         display.innerHTML = "";
+         operator = "";
+         secondDisplay.innerHTML = "-";
+         console.log(counter);
       }
       if (firstOperand && operator){
          operator = this.value;
@@ -61,6 +75,10 @@ for (let i = 0; i < operatorButtons.length; i++) {
          secondDisplay.innerHTML = firstOperand;
          secondOperand = "";
       }
+      console.log(firstOperand);
+      console.log(secondOperand);
+      console.log(operator);
+      console.log(typeof operator);
    });
 }
 
@@ -176,6 +194,7 @@ else if (secondDisplay.innerHTML.length > 8 && operator){
 }
 }
 
+console.log(counter);
 
 
 
