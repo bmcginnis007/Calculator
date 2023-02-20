@@ -28,15 +28,15 @@ for (let i = 0; i < buttons.length; i++) {
          secondOperand = "0";
          secondDisplay.innerHTML = secondOperand;
       }
-      if (counter > 0){
-         firstOperand = "0" - this.value;
+      if (counter === 1){
+         firstOperand = 0 - firstOperand;
          secondDisplay.innerHTML = firstOperand;
+         counter = 0;
+         console.log(secondOperand);
+         console.log(firstOperand);
       }
       console.log(firstOperand);
-      console.log(typeof firstOperand);
-      console.log(typeof secondOperand);
-      console.log(secondOperand);
- });
+   });
 }
 
 const operatorButtons = document.querySelectorAll("button[id='operator']");
@@ -50,16 +50,11 @@ for (let i = 0; i < operatorButtons.length; i++) {
          firstOperand = "0";
          display.innerHTML = firstOperand + " " + operator;
       }*/
-      if(!firstOperand && operator === "+"){
-         operator = "";
+      if (!firstOperand && operator === "-"){
          display.innerHTML = "";
-      }
-      if (operator === "-" && !firstOperand){
-         counter = 1;
-         display.innerHTML = "";
-         operator = "";
          secondDisplay.innerHTML = "-";
-         console.log(counter);
+         operator = "";
+         counter = 1;
       }
       if (firstOperand && operator){
          operator = this.value;
@@ -70,15 +65,12 @@ for (let i = 0; i < operatorButtons.length; i++) {
       }
       if (operator === "*"){
          display.innerHTML = firstOperand + " " + "&times;";
-      }
+      }/*
       if (firstOperand < 0){ // enables negative numbers to be entered into the display
          secondDisplay.innerHTML = firstOperand;
          secondOperand = "";
-      }
+      }*/
       console.log(firstOperand);
-      console.log(secondOperand);
-      console.log(operator);
-      console.log(typeof operator);
    });
 }
 
@@ -173,9 +165,10 @@ document.getElementById("clearEntry").addEventListener("click", function(){ //re
    firstOperand = firstOperand.slice(0, -1);
    secondDisplay.innerHTML = firstOperand;
   }
-  if (firstOperand && !secondOperand){
-   operator = "";
+  if (firstOperand && secondOperand){
+   secondOperand = secondOperand.slice(0, -1);
    display.innerHTML = firstOperand + operator;
+   secondDisplay.innerHTML = secondOperand;
    }
   if (firstOperand && secondOperand){
    secondOperand =  secondOperand.slice(0, -1);
@@ -193,8 +186,6 @@ else if (secondDisplay.innerHTML.length > 8 && operator){
    secondDisplay.innerHTML = secondOperand;
 }
 }
-
-console.log(counter);
 
 
 
