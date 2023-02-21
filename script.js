@@ -32,8 +32,8 @@ for (let i = 0; i < buttons.length; i++) {
          firstOperand = 0 - firstOperand;
          secondDisplay.innerHTML = firstOperand;
          counter = 0;
-         console.log(secondOperand);
          console.log(firstOperand);
+         console.log(typeof firstOperand);
       }
       console.log(firstOperand);
    });
@@ -75,6 +75,7 @@ for (let i = 0; i < operatorButtons.length; i++) {
 }
 
 function addDecimal(){
+   firstOperand = firstOperand.toString();//changes firstOperand from a Number to a string if it's a negative number
   if (!secondOperand && !firstOperand.includes(".")){
    firstOperand = firstOperand + ".";
    secondDisplay.innerHTML = firstOperand;
